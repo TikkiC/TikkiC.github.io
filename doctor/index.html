@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Календарь врача · MedPlatform</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="doctor.css">
+</head>
+<body class="doctor-body" data-pseudo-db="../data/pseudo-db.json">
+    <header class="doctor-header">
+        <div class="container doctor-header__content">
+            <a class="doctor-header__logo" href="../index.html">Med<span>Platform</span></a>
+            <div class="doctor-header__details">
+                <div id="doctor-name" class="doctor-header__name">Врач</div>
+                <div id="doctor-specialty" class="doctor-header__meta">Загрузка профиля…</div>
+            </div>
+            <div class="doctor-header__actions">
+                <button class="doctor-header__btn" id="doctor-dashboard-btn" type="button">К дэшборду</button>
+                <button class="doctor-header__btn doctor-header__btn--logout" id="staff-logout-btn" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="doctor-main">
+        <section class="doctor-banner" id="doctor-banner">
+            <div class="container doctor-banner__content">
+                <div>
+                    <h1>Рабочий календарь</h1>
+                    <p id="doctor-description">Актуальная информация по приему пациентов.</p>
+                </div>
+                <ul class="doctor-badges" id="doctor-badges">
+                    <li id="doctor-locations">Локации уточняются</li>
+                    <li id="doctor-experience">Стаж уточняется</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="doctor-section" aria-labelledby="doctor-schedule-title">
+            <div class="container">
+                <div class="doctor-section__heading">
+                    <div>
+                        <h2 id="doctor-schedule-title">График приема</h2>
+                        <p id="doctor-schedule-range" class="doctor-section__subtitle"></p>
+                    </div>
+                    <div class="doctor-legend">
+                        <span><span class="legend-dot legend-dot--free"></span>Свободно</span>
+                        <span><span class="legend-dot legend-dot--pending"></span>На подтверждении</span>
+                        <span><span class="legend-dot legend-dot--confirmed"></span>Подтверждено</span>
+                        <span><span class="legend-dot legend-dot--rerouted"></span>Перенаправлено</span>
+                    </div>
+                </div>
+                <div id="doctor-schedule-grid" class="doctor-schedule"></div>
+                <div id="doctor-empty-message" class="doctor-empty" hidden>
+                    Расписание будет доступно после публикации слотов.
+                </div>
+            </div>
+        </section>
+
+        <section class="doctor-section" aria-labelledby="doctor-appointments-title">
+            <div class="container">
+                <div class="doctor-section__heading">
+                    <div>
+                        <h2 id="doctor-appointments-title">Ближайшие обращения</h2>
+                        <p class="doctor-section__subtitle">Статусы обновляются локально для демонстрации.</p>
+                    </div>
+                </div>
+                <div id="doctor-appointments-list" class="doctor-appointments"></div>
+            </div>
+        </section>
+    </main>
+
+    <div class="doctor-modal" id="appointment-modal" aria-hidden="true">
+        <div class="doctor-modal__backdrop" data-close-modal></div>
+        <div class="doctor-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="appointment-modal-title">
+            <button class="doctor-modal__close" type="button" data-close-modal>&times;</button>
+            <div class="doctor-modal__body" id="appointment-modal-body">
+                <h3 id="appointment-modal-title">Обращение</h3>
+                <div id="appointment-modal-content"></div>
+                <div class="doctor-modal__actions" id="appointment-modal-actions"></div>
+            </div>
+        </div>
+    </div>
+
+    <template id="appointment-card-template">
+        <article class="appointment-card">
+            <header class="appointment-card__header">
+                <div>
+                    <div class="appointment-card__time"></div>
+                    <div class="appointment-card__status"></div>
+                </div>
+                <button class="appointment-card__more" type="button">Подробнее</button>
+            </header>
+            <div class="appointment-card__patient"></div>
+            <div class="appointment-card__service"></div>
+        </article>
+    </template>
+
+    <script src="../js/data-provider.js" defer></script>
+    <script src="../js/staff-auth.js" defer></script>
+    <script src="doctor.js" defer></script>
+</body>
+</html>

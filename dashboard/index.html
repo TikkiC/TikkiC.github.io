@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель мониторинга MedPlatform</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-body" data-pseudo-db="../data/pseudo-db.json">
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-header__content">
+                <div class="logo">Med<span>Platform</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#overview">Обзор</a></li>
+                        <li><a href="#analytics">Аналитика</a></li>
+                        <li><a href="#requests">Обращения</a></li>
+                        <li><a href="#team">Команда</a></li>
+                    </ul>
+                </nav>
+                <div class="dashboard-header__meta">
+                    <div class="dashboard-header__user">
+                        <span class="dashboard-header__avatar">АХ</span>
+                        <div class="dashboard-header__user-info">
+                            <strong>Администратор</strong>
+                            <span>Центр телемедицины</span>
+                        </div>
+                    </div>
+                    <button class="dashboard-header__logout" id="staff-logout-btn" type="button">Выйти</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="dashboard-hero" id="overview">
+            <div class="container">
+                <div class="dashboard-hero__content">
+                    <div>
+                        <h1>Оперативный обзор обращений по Астраханской области</h1>
+                        <p>Следите за нагрузкой на отделения, динамикой обращений и статусами обработки заявок пациентов в едином окне.</p>
+                    </div>
+                    <div class="dashboard-hero__cta">
+                        <button class="btn btn-primary" id="create-request-btn">Новое обращение</button>
+                        <button class="btn btn-outline" id="export-report-btn">Экспорт отчета</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="metric-section" id="analytics">
+            <div class="container">
+                <h2 class="section-title">Ключевые показатели</h2>
+                <div class="metric-grid" id="metric-grid">
+                    <!-- Metrics render here -->
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-panels">
+            <div class="container dashboard-panels__grid">
+                <article class="dashboard-panel" id="requests-trend">
+                    <header>
+                        <h3>Динамика обращений</h3>
+                        <span class="panel-subtitle">Последние 7 дней</span>
+                    </header>
+                    <div class="trend-chart" id="trend-chart">
+                        <!-- Trend bars render here -->
+                    </div>
+                    <footer>
+                        <button class="link-button" data-range="7">7 дней</button>
+                        <button class="link-button" data-range="30">30 дней</button>
+                        <button class="link-button" data-range="90">90 дней</button>
+                    </footer>
+                </article>
+                <article class="dashboard-panel" id="capacity-panel">
+                    <header>
+                        <h3>Загрузка отделений</h3>
+                        <span class="panel-subtitle">На текущий момент</span>
+                    </header>
+                    <ul class="capacity-list" id="capacity-list">
+                        <!-- Capacity rows render here -->
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="requests-section" id="requests">
+            <div class="container">
+                <div class="requests-header">
+                    <h2 class="section-title">Последние обращения</h2>
+                    <div class="requests-actions">
+                        <div class="dashboard-search" role="search">
+                            <input type="search" id="dashboard-search" placeholder="Поиск по пациентам или обращениям">
+                            <button type="button" id="dashboard-search-btn">Найти</button>
+                        </div>
+                        <select id="status-filter">
+                            <option value="all">Все статусы</option>
+                            <option value="new">Новые</option>
+                            <option value="in_progress">В работе</option>
+                            <option value="resolved">Решены</option>
+                        </select>
+                        <button class="btn btn-primary" id="refresh-requests">Обновить данные</button>
+                    </div>
+                </div>
+                <div class="requests-table__wrap">
+                    <table class="requests-table">
+                        <thead>
+                            <tr>
+                                <th>Пациент</th>
+                                <th>Локация</th>
+                                <th>Симптомы</th>
+                                <th>Назначено</th>
+                                <th>Статус</th>
+                                <th>Ответственный</th>
+                            </tr>
+                        </thead>
+                        <tbody id="requests-table-body">
+                            <!-- Rows render here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section" id="team">
+            <div class="container">
+                <h2 class="section-title">Координаторы и врачи</h2>
+                <div class="team-grid" id="team-grid">
+                    <!-- Team cards render here -->
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline-section" id="timeline">
+            <div class="container">
+                <h2 class="section-title">Лента событий</h2>
+                <div class="timeline" id="timeline-feed">
+                    <!-- Timeline events render here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="dashboard-footer">
+        <div class="container">
+            <div class="dashboard-footer__content">
+                <div>
+                    <strong>MedPlatform Аналитика</strong>
+                    <p>Цифровая координация медицинской помощи региона</p>
+                </div>
+                <div class="dashboard-footer__links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                    <a href="#">Техподдержка</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="request-modal">
+        <div class="modal-content">
+            <span class="close-modal" data-close="request-modal">&times;</span>
+            <h2>Создать обращение</h2>
+            <form id="request-form">
+                <div class="form-group">
+                    <label for="modal-patient">ФИО пациента</label>
+                    <input type="text" id="modal-patient" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="modal-location">Локация</label>
+                    <input type="text" id="modal-location" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="modal-symptoms">Симптомы</label>
+                    <textarea id="modal-symptoms" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="modal-responsible">Ответственный врач</label>
+                    <input type="text" id="modal-responsible" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/data-provider.js" defer></script>
+    <script src="../js/staff-auth.js" defer></script>
+    <script src="dashboard.js" defer></script>
+</body>
+</html>

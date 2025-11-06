@@ -1,0 +1,452 @@
+.doctor-body {
+    background-color: #f4f6f9;
+    color: #1b1f23;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.doctor-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 16px 0;
+}
+
+.doctor-header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.doctor-header__logo {
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    color: #0d2c54;
+}
+
+.doctor-header__logo span {
+    color: #24a19c;
+}
+
+.doctor-header__details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.doctor-header__name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.doctor-header__meta {
+    color: #586069;
+    font-size: 14px;
+}
+
+.doctor-header__actions {
+    display: flex;
+    gap: 12px;
+}
+
+.doctor-header__btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(13, 44, 84, 0.15);
+    background-color: #ffffff;
+    color: #0d2c54;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doctor-header__btn:hover {
+    background-color: rgba(36, 161, 156, 0.12);
+}
+
+.doctor-header__btn--logout {
+    border-color: rgba(200, 16, 46, 0.2);
+    color: #c8102e;
+}
+
+.doctor-header__btn--logout:hover {
+    background-color: rgba(200, 16, 46, 0.08);
+}
+
+.doctor-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 48px;
+}
+
+.doctor-banner {
+    padding: 32px 0;
+}
+
+.doctor-banner__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.doctor-banner__content h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+.doctor-banner__content p {
+    margin: 0;
+    color: #39424e;
+}
+
+.doctor-badges {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.doctor-badges li {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+}
+
+.doctor-section {
+    padding: 16px 0;
+}
+
+.doctor-section__heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.doctor-section__heading h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.doctor-section__subtitle {
+    margin: 4px 0 0;
+    color: #5a6372;
+    font-size: 14px;
+}
+
+.doctor-legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: #5a6372;
+}
+
+.legend-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 6px;
+    background-color: #d0d7de;
+}
+
+.legend-dot--free {
+    background-color: #e6edf3;
+}
+
+.legend-dot--pending {
+    background-color: #f7d070;
+}
+
+.legend-dot--confirmed {
+    background-color: #56d364;
+}
+
+.legend-dot--rerouted {
+    background-color: #ffb77b;
+}
+
+.doctor-schedule {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.doctor-day {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.doctor-day__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.doctor-day__label {
+    font-weight: 600;
+}
+
+.doctor-day__status {
+    font-size: 12px;
+    color: #a0a6ad;
+}
+
+.doctor-day__slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.doctor-slot {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 13px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.doctor-slot:focus-visible {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+}
+
+.doctor-slot--free {
+    background-color: #f6f8fa;
+    color: #39424e;
+    border-color: rgba(0, 0, 0, 0.06);
+}
+
+.doctor-slot--pending {
+    background-color: #fff5c2;
+    color: #5a4105;
+}
+
+.doctor-slot--confirmed {
+    background-color: #d4f7d4;
+    color: #104b0b;
+}
+
+.doctor-slot--rerouted {
+    background-color: #ffe1c2;
+    color: #663200;
+}
+
+.doctor-slot--busy {
+    background-color: #eaeef2;
+    color: #5a6372;
+    cursor: not-allowed;
+}
+
+.doctor-slot:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(15, 23, 42, 0.08);
+}
+
+.doctor-slot.doctor-slot--busy:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.doctor-day__note {
+    font-size: 13px;
+    color: #5a6372;
+    background-color: rgba(13, 44, 84, 0.04);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.doctor-empty {
+    margin-top: 24px;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    color: #5a6372;
+}
+
+.doctor-appointments {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.appointment-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.appointment-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.appointment-card__time {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.appointment-card__status {
+    font-size: 12px;
+    color: #5a6372;
+}
+
+.appointment-card__more {
+    background: none;
+    border: none;
+    color: #0d6efd;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 4px;
+}
+
+.appointment-card__patient {
+    font-size: 14px;
+    color: #1f2937;
+}
+
+.appointment-card__service {
+    font-size: 13px;
+    color: #5a6372;
+}
+
+.doctor-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.doctor-modal.is-open {
+    display: flex;
+}
+
+.doctor-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(17, 24, 39, 0.45);
+}
+
+.doctor-modal__dialog {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 460px;
+    width: 100%;
+    box-shadow: 0 30px 80px rgba(15, 23, 42, 0.25);
+}
+
+.doctor-modal__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.doctor-modal__body h3 {
+    margin-top: 0;
+}
+
+.doctor-modal__body dl {
+    margin: 0;
+}
+
+.doctor-modal__body dt {
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.doctor-modal__body dd {
+    margin: 4px 0 0;
+    color: #374151;
+}
+
+.doctor-modal__actions {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.doctor-modal__actions button {
+    flex: 1 1 140px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.doctor-action--confirm {
+    background-color: #1a936f;
+    color: #ffffff;
+}
+
+.doctor-action--reroute {
+    background-color: #f0b429;
+    color: #3a2500;
+}
+
+.doctor-action--service {
+    background-color: #0d6efd;
+    color: #ffffff;
+}
+
+.doctor-action--close {
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+@media (max-width: 768px) {
+    .doctor-header__content {
+        flex-wrap: wrap;
+    }
+
+    .doctor-header__actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .doctor-banner__content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .doctor-section__heading {
+        align-items: flex-start;
+    }
+}
